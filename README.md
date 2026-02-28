@@ -30,7 +30,7 @@ orden
 
 ---
 
-## 📊 Resultados obtenidos (ejemplo)
+ Resultados que obtenidos 
 
 | Estructura | Tiempo promedio | Memoria aproximada | Complejidad |
 |------------|-----------------|--------------------|-------------|
