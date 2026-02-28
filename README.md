@@ -1,62 +1,53 @@
-Búsqueda eficiente sobre grandes volúmenes de datos
+# Comparación de estructuras de datos en grandes volúmenes
 
-Este programa genera 10,000,000 de números aleatorios en el rango [-50,000,000, 50,000,000], los almacena en un archivo de texto y posteriormente los carga en memoria para comparar el rendimiento de búsqueda utilizando distintas estructuras de datos.
+Descripción
 
-El objetivo principal es analizar la **complejidad teórica** y el comportamiento práctico de cada estructura.
+Este programa genera 10,000,000 de números aleatorios en el rango [-50,000,000, 50,000,000] y compara el rendimiento de búsqueda utilizando tres estructuras de datos diferentes.
 
-Arreglo ordenado (vector + binary_search)
+El objetivo principal es analizar y comprender la **complejidad teórica** de cada estructura.
 
-- Los datos se ordenan previamente.
-- Se utiliza búsqueda binaria.
+Estructuras implementadas
+
+ Lista enlazada (`std::list`)
+
+- La búsqueda se realiza recorriendo elemento por elemento.
+- Complejidad de búsqueda: **O(n)**.
+- A medida que aumenta la cantidad de datos, el tiempo crece de forma lineal.
+
+---
+
+ Árbol binario balanceado (`std::set`)
+
+- Implementado mediante un árbol rojo-negro.
+- Mantiene los datos ordenados automáticamente.
 - Complejidad de búsqueda: **O(log n)**.
-- Uso de memoria: Bajo en comparación con la tabla hash.
+- El crecimiento del tiempo es mucho más lento que en O(n).
 
- Tabla Hash (unordered_set)
+---
 
-- Acceso directo mediante función hash.
-- No requiere ordenamiento previo.
+ Tabla hash (`std::unordered_set`)
+
+- Utiliza una función hash para acceso directo.
+- No mantiene los datos ordenados.
 - Complejidad promedio de búsqueda: **O(1)**.
-- Uso de memoria: Alto debido al almacenamiento interno de buckets.
-
-orden
-
-1. Generación de 10 millones de números aleatorios.
-2. Almacenamiento en archivo de texto.
-3. Carga de datos en memoria.
-4. Construcción de ambas estructuras.
-5. Ejecución de 1,000 búsquedas automáticas.
-6. Medición del tiempo promedio por estructura.
-7. Presentación de tabla comparativa.
+- Es la más eficiente en tiempo de búsqueda en promedio.
 
 ---
 
- Resultados que obtenidos 
-
-| Estructura | Tiempo promedio | Memoria aproximada | Complejidad |
-|------------|-----------------|--------------------|-------------|
-| Arreglo ordenado | Muy bajo | ~38 MB | O(log n) |
-| Tabla Hash | Muy bajo | ~345 MB | O(1) promedio |
-
-
-
-Análisis de complejidad teórica
-
-- **O(1)**: Tiempo constante. No depende del tamaño de los datos.
-- **O(log n)**: Crecimiento lento. Aumenta ligeramente cuando n crece.
-- En grandes volúmenes de datos, O(1) es más eficiente que O(log n).
-
- Conclusión
-
-La tabla hash es más eficiente en tiempo de búsqueda debido a su complejidad O(1) promedio. Sin embargo, consume significativamente más memoria.
-
-El arreglo ordenado ofrece un buen equilibrio entre eficiencia y uso de memoria, aunque su búsqueda es ligeramente más lenta debido a su complejidad O(log n).
-
-La elección de la estructura depende del escenario y los recursos disponibles.
-
-Lenguaje
-
-- C++
-- Visual Studio 2022
-- STL (vector, unordered_set, algorithm, chrono)
+Resultados que obtuve
+| Estructura | Complejidad de Búsqueda |
+|------------|------------------------|
+| Lista enlazada | **O(n)** |
+| Árbol binario balanceado | **O(log n)** |
+| Tabla hash | **O(1) promedio** |
 
 ---
+
+Mi Análisis
+
+- La lista enlazada es la menos eficiente para búsquedas grandes debido a su complejidad lineal.
+- El árbol binario mejora considerablemente el rendimiento al utilizar división logarítmica.
+- La tabla hash es la más rápida en promedio, ya que su tiempo no depende directamente del tamaño de los datos.
+
+En grandes volúmenes de información, la diferencia entre O(n), O(log n) y O(1) es significativa.
+
