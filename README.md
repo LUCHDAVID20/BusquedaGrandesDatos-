@@ -34,9 +34,24 @@ Estructuras implementadas
 
 ---
 
-Resultados que obtuve
-| Estructura | Complejidad de Búsqueda |
-|------------|------------------------|
+##  Resultados 
+
+### Tiempo de construcción
+
+- Lista enlazada: 0.52 s  
+- Árbol binario (set): 11.27 s  
+- Tabla hash: 2.11 s  
+
+### Memoria aproximada utilizada
+
+- Lista enlazada: 228.88 MB  
+- Árbol binario (set): 435.61 MB  
+- Tabla hash: 345.81 MB  
+
+### Complejidad teórica de búsqueda
+
+| Estructura | Complejidad |
+|------------|------------|
 | Lista enlazada | **O(n)** |
 | Árbol binario balanceado | **O(log n)** |
 | Tabla hash | **O(1) promedio** |
